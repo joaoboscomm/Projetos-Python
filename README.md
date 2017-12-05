@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+// codigo simulação batalha naval
 
-You can use the [editor on GitHub](https://github.com/joaoboscomm/Projetos-Python/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+//importar random
+from random import randint
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+board = []
 
-### Markdown
+/preencher matriz com elementos
+for x in range(0, 5):
+  board.append(["O"] * 5)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+def print_board(board):
+  for row in board:
+    print " ".join(row)
 
-```markdown
-Syntax highlighted code block
+print_board(board)
 
-# Header 1
-## Header 2
-### Header 3
+def random_row(board):
+  return randint(0, len(board) - 1)
 
-- Bulleted
-- List
+def random_col(board):
+  return randint(0, len(board[0]) - 1)
 
-1. Numbered
-2. List
+ship_row = random_row(board)
+ship_col = random_col(board)
+print ship_row
+print ship_col
 
-**Bold** and _Italic_ and `Code` text
+guess_row = int(raw_input("Guess Row: "))
+guess_col = int(raw_input("Guess Col: "))
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/joaoboscomm/Projetos-Python/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+if guess_row == ship_row:
+  if guess_col == ship_col:
+  	print ("Congratulations! You sank my battleship!");
+    
+    
